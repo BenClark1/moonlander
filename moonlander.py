@@ -1,5 +1,4 @@
 # Project 2 - Moonlander 
-
 # Author: Ben Clark
 
 # Lunar Lander Simulator

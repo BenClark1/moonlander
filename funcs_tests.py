@@ -27,7 +27,7 @@ class TestCases(unittest.TestCase):
  
       
 
-# Run the unit tests.
+# Run the unit tests
 if __name__ == '__main__':
    unittest.main()
 
