@@ -6,9 +6,9 @@ class TestCases(unittest.TestCase):
       self.assertEqual(showWelcome(), None)
 
    def test_update_acc1(self):
-      self.assertAlmostEqual(updateAcceleration(1.62, 0), -1.62)
+      self.assertAlmostEqual(updateAcceleration(0), -1.62)
    def test_update_acc2(self):
-      self.assertAlmostEqual(updateAcceleration(1.62, 20), 4.86)
+      self.assertAlmostEqual(updateAcceleration(20), 4.86)
 
    def test_updateAlt1(self):
       self.assertEqual(updateAltitude(66666,-22222,-33333), 27777.5) 

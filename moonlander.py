@@ -3,6 +3,12 @@
 
 # Lunar Lander Simulator
 
+# Units:
+# Altitude: m
+# Velocity: m/s
+# Acceleration: m/s^2
+# Fuel: Liters
+# Fuel Rate: Liters per second
 from landerFuncs import *
 
 showWelcome() # display a welcome message
@@ -27,7 +33,7 @@ while altitude != 0:
 
    fuel = updateFuel(fuel, fuel_rate)
 
-   acceleration = updateAcceleration(1.62, fuel_rate)
+   acceleration = updateAcceleration(fuel_rate)
    altitude = updateAltitude(altitude, velocity, acceleration)
    velocity = updateVelocity(velocity, acceleration)
    

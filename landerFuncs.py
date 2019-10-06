@@ -13,7 +13,14 @@ Welcome aboard the Lunar Module Flight Simulator
 """
    print(welcome_message)
    return
-   
+
+def getAltitude():
+   altitude = float(input("Enter the initial altitude of the LM (in meters): "))
+   while altitude < 1 or altitude > 9999:
+      print("ERROR: Altitude must be between 1 and 9999, inclusive, please try again")
+      altitude = float(input("Enter the initial altitude of the LM (in meters): "))
+   return altitude
+
 def getFuel():
    fuel = input("Enter the initial amount of fuel on board the LM (in liters): ")
    fuel = int(fuel)
@@ -22,19 +29,11 @@ def getFuel():
       fuel = input("Enter the initial amount of fuel on board the LM (in liters): ")
       fuel = int(fuel)
    return fuel
-
-
-def getAltitude():
-   altitude = float(input("Enter the initial altitude of the LM (in meters): "))
-   while altitude < 1 or altitude > 9999:
-      print("ERROR: Altitude must be between 1 and 9999, inclusive, please try again")
-      altitude = float(input("Enter the initial altitude of the LM (in meters): "))
-   return altitude
    
 def displayLMState(elapsedTime, altitude, velocity, fuelAmount, fuelRate):
    print("Elapsed Time:".rjust(13) + (str(elapsedTime) + " s").rjust(7))
    print("Fuel:".rjust(13) + (str(fuelAmount) + " l").rjust(7))
-   print("Rate:".rjust(13) + (str(fuelRate) + " l/s").rjust(9))
+   print("Fuel Rate:".rjust(13) + (str(fuelRate) + " l/s").rjust(9))
    print("Altitude:".rjust(13) + (format(altitude, ".2f") + " m").rjust(10))
    print("Velocity:".rjust(13) + (format(velocity, ".2f") + " m/s").rjust(12))
    return
@@ -48,9 +47,9 @@ def getFuelRate(currentFuel):
       fuel_rate = int(fuel_rate)
    return min(fuel_rate, currentFuel)
  
-def updateAcceleration(gravity, fuelRate):
-   # use 1.62 for gravity when calling this function
-   new_acceleration = gravity*((fuelRate/5) - 1)
+def updateAcceleration(fuelRate):
+   # use 1.62 for gravity
+   new_acceleration = 1.62*((fuelRate/5) - 1)
    return new_acceleration
 	
 def updateAltitude(altitude, velocity, acceleration):
